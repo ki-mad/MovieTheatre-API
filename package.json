@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "Movie"
@@ -22,6 +22,7 @@
     "mysql": "^2.17.1",
     "mysql2": "^2.1.0",
     "password-hash": "^1.2.2",
+    "pg": "^7.17.1",
     "sequelize": "^5.21.3",
     "sequelize-cli": "^5.5.1"
   }
