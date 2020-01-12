@@ -68,3 +68,41 @@ exports.getCapacity = (req, res) => {
   )
   .catch(err => res.send(err));
 }
+
+// post new Showtimes
+exports.addShowtimes = (req, res) => {
+  Showtime.create(req.body).then(data => {
+    res.send({
+      message: "Success",
+      data
+    });
+  });
+};
+
+//update Schedule by id
+exports.updateShowtime = (req, res) => {
+  Showtime.update(req.body, { where: { id: req.params.id } })
+    .then(data =>
+      res.send({
+        data,
+        message: "Showtime Updated"
+      })
+    )
+    .catch(err => {
+      res.send(err);
+    });
+};
+
+//delete Schedule by id
+exports.deleteShowtime = (req, res) => {
+  Showtime.destroy({ where: { id: req.params.id } }).then(data => {
+    res
+      .send({
+        data,
+        message: "Showtime Deleted"
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  });
+};

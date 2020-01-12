@@ -42,6 +42,8 @@ const schedule = require("./controllers/schedule");
 const showtime = require("./controllers/showtime");
 const seat = require("./controllers/seat");
 const ticket = require("./controllers/ticket");
+const studioseat = require("./controllers/studioseat");
+const booking = require("./controllers/booking");
 
 app.group("/movie21", router => {
   //auth
@@ -77,18 +79,40 @@ app.group("/movie21", router => {
 
   //schedule
   router.get("/schedule/:id", schedule.getScheduleByMovieId);
+  router.get("/schedule", schedule.getAllSchedule);
+  router.post("/schedule", schedule.addSchedule);
+  router.put("/schedule/:id/update", schedule.updateSchedule);
+  router.delete("/schedule/:id/delete", schedule.deleteSchedule);
 
   //showtimes
   router.get("/showtimes", showtime.getAllShowtimes);
   router.get("/showtime/:id", showtime.getShowtimeById);
   router.get("/showtime/:id/studio", showtime.getCapacity);
+  router.post("/showtime", showtime.addShowtimes);
+  router.put("/showtime/:id/update", showtime.updateShowtime);
+  router.delete("/showtime/:id/delete", showtime.deleteShowtime);
 
   //seat
   router.get("/seats", seat.getAllSeat);
+  router.post("/seat", seat.addSeat);
+  router.put("/seat/:id/update", seat.updateSeat);
+  router.delete("/seat/:id/delete", seat.deleteSeat);
 
   //ticket
   router.get("/tickets", ticket.getAllTicket);
   router.get("/ticket/:id", ticket.getTicketById);
   router.post("/ticket", ticket.addTicket);
   router.put("/ticket/:id/update", ticket.updateTicket);
+
+  //Studioseat
+  router.get("/studioseats", studioseat.getAllStudioSeat);
+  router.post("/studioseat", studioseat.create);
+  router.put("/studioseat/:id/update", studioseat.updateStudioseat);
+  router.delete("/studioseat/:id/delete", studioseat.destroy);
+
+  //Booking
+  router.get("/booking", booking.getAllBooking);
+  router.post("/booking", booking.create);
+  router.put("/booking/:id/approved", booking.updateStatusApproved);
+  router.put("/booking/:id/confirm", booking.updateStatusConfirm);
 });

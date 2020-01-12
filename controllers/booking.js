@@ -2,7 +2,7 @@ const models = require("../models");
 const Booking = models.booking;
 
 // get all booking
-exports.getAllStudioSeat = (req, res) => {
+exports.getAllBooking = (req, res) => {
   Booking.findAll()
     .then(data =>
       res.send({

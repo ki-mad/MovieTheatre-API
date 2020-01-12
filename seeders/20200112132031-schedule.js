@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -12,6 +12,17 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    return queryInterface.bulkInsert(
+      "schedules",
+      [
+        {
+          movie_id: "2",
+          CreatedAt: new Date(),
+          updatedAt: new Date()
+        }
+      ],
+      {}
+    );
   },
 
   down: (queryInterface, Sequelize) => {

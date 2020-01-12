@@ -39,3 +39,41 @@ exports.getScheduleByMovieId = (req, res) => {
     )
     .catch(err => res.send(err));
 };
+
+// post new Schedule
+exports.addSchedule = (req, res) => {
+  Schedule.create(req.body).then(data => {
+    res.send({
+      message: "Success",
+      data
+    });
+  });
+};
+
+//update Schedule by id
+exports.updateSchedule = (req, res) => {
+  Schedule.update(req.body, { where: { id: req.params.id } })
+    .then(data =>
+      res.send({
+        data,
+        message: "Schedule Updated"
+      })
+    )
+    .catch(err => {
+      res.send(err);
+    });
+};
+
+//delete Schedule by id
+exports.deleteSchedule = (req, res) => {
+  Schedule.destroy({ where: { id: req.params.id } }).then(data => {
+    res
+      .send({
+        data,
+        message: "Schedule Deleted"
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  });
+};
