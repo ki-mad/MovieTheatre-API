@@ -50,7 +50,7 @@ app.group("/movie21", router => {
   //user
   router.get("/users", user.getAllUser);
   router.get("/user/:id", user.UserById);
-  router.put("/user/:id/update", authenticated, user.updateUser);
+  router.put("/user/:id/update", user.updateUser);
   router.delete("/user/:id/delete", user.deleteUser);
 
   //movies

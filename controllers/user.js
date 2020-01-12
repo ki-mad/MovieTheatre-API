@@ -1,8 +1,6 @@
 // const jwt = require('jsonwebtoken')
 const models = require("../models");
 const User = models.user;
-const Event = models.event;
-const Favorite = models.favorite;
 
 //get all data user
 exports.getAllUser = (req, res) => {
