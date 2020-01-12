@@ -41,6 +41,7 @@ const studio = require("./controllers/studio");
 const schedule = require("./controllers/schedule");
 const showtime = require("./controllers/showtime");
 const seat = require("./controllers/seat");
+const ticket = require("./controllers/ticket");
 
 app.group("/movie21", router => {
   //auth
@@ -84,4 +85,10 @@ app.group("/movie21", router => {
 
   //seat
   router.get("/seats", seat.getAllSeat);
+
+  //ticket
+  router.get("/tickets", ticket.getAllticket);
+  router.get("/ticket/:id", ticket.getCinemasById);
+  router.post("/ticket", ticket.addticket);
+  router.put("/ticket/:id/update", ticket.updateticket);
 });
