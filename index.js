@@ -88,7 +88,7 @@ app.group("/movie21", router => {
 
   //ticket
   router.get("/tickets", ticket.getAllticket);
-  router.get("/ticket/:id", ticket.getCinemasById);
+  router.get("/ticket/:id", ticket.getTicketById);
   router.post("/ticket", ticket.addticket);
   router.put("/ticket/:id/update", ticket.updateticket);
 });

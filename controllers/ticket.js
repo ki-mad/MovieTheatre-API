@@ -2,7 +2,7 @@ const models = require("../models");
 const ticket = models.ticket;
 
 // get all ticket
-exports.getAllticket = (req, res) => {
+exports.getAllTicket = (req, res) => {
   ticket.findAll()
     .then(data =>
       res.send({
@@ -14,7 +14,7 @@ exports.getAllticket = (req, res) => {
 };
 
 //get ticket by id
-exports.getticketById = (req, res) => {
+exports.getTicketById = (req, res) => {
   ticket.findOne({
     where: { id: req.params.id }
   })
@@ -28,7 +28,7 @@ exports.getticketById = (req, res) => {
 };
 
 // post new ticket
-exports.addticket = (req, res) => {
+exports.addTicket = (req, res) => {
   ticket.create(req.body).then(data => {
     res.send({
       message: "Success",
@@ -38,7 +38,7 @@ exports.addticket = (req, res) => {
 };
 
 //update ticket by id
-exports.updateticket = (req, res) => {
+exports.updateTicket = (req, res) => {
   ticket.update(req.body, { where: { id: req.params.id } })
     .then(data =>
       res.send({
@@ -52,7 +52,7 @@ exports.updateticket = (req, res) => {
 };
 
 //delete ticket by id
-exports.deleteticket = (req, res) => {
+exports.deleteTicket = (req, res) => {
   ticket.destroy({ where: { id: req.params.id } }).then(data => {
     res
       .send({
