@@ -27,7 +27,7 @@ exports.getAllShowtimes = (req, res) => {
 exports.getShowtimeById = (req, res) => {
   Showtime.findAll({
     where: { schedule_id: req.params.id },
-    attributes: ['id','showDate', 'showTime','endTime', 'endDate', 'studio_id'],
+    attributes: ['id','showDate', 'showTimes','endTime', 'endDate', 'studio_id'],
     include: [{
       model: models.schedule,
       as: 'schedules',

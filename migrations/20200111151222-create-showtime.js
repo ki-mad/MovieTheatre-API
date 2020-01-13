@@ -29,13 +29,13 @@ module.exports = {
       showDate: {
         type: Sequelize.DATE
       },
-      showtime: {
+      showTimes: {
         type: Sequelize.TIME
       },
       endDate: {
         type: Sequelize.DATE
       },
-      endTime: {
+      endTimes: {
         type: Sequelize.TIME
       },
       createdAt: {

@@ -4,9 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     studio_id: DataTypes.INTEGER,
     schedule_id: DataTypes.INTEGER,
     showDate: DataTypes.DATE,
-    showTime: DataTypes.TIME,
+    showTimes: DataTypes.TIME,
     endDate: DataTypes.DATE,
-    endTime: DataTypes.TIME
+    endTimes: DataTypes.TIME
   }, {});
   showtime.associate = function(models) {
     // associations can be defined here
