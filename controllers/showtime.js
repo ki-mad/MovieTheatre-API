@@ -23,11 +23,22 @@ exports.getAllShowtimes = (req, res) => {
     .catch(err => res.send(err));
 };
 
+exports.getShowtimes = (req, res) => {
+  Showtime.findAll()
+    .then(data =>
+      res.send({
+        data,
+        message: "Success"
+      })
+    )
+    .catch(err => res.send(err));
+};
+
 //get cinemas by id
 exports.getShowtimeById = (req, res) => {
   Showtime.findAll({
     where: { schedule_id: req.params.id },
-    attributes: ['id','showDate', 'showTimes','endTime', 'endDate', 'studio_id'],
+    attributes: ['id','showDate', 'showTimes','endTimes', 'endDate', 'studio_id'],
     include: [{
       model: models.schedule,
       as: 'schedules',
